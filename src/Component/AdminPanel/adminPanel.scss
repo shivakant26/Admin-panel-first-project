@@ -26,7 +26,6 @@ button {
 }
 .admin-wrapper {
     background: #fff;
-    max-width: 70%;
     margin: 50px auto;
     border-radius: 25px;
     @media screen and (max-width: 767px) {
@@ -128,4 +127,7 @@ button {
             }
         }
     }
+}
+.tabs-wrapper{
+    margin: 100px 0 50px;
 }

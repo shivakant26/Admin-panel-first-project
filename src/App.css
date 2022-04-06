@@ -36,7 +36,30 @@
     transform: rotate(360deg);
   }
 }
-/* .error{
+.form-main{
+position: relative;
+}
+span.error{
   color: red;
   font-size: 23px;
-} */
+  position: absolute;
+  top: -8px;
+  right: 85px;
+}
+
+.admin-panel a, .user-table a ,.role-table a{
+    background: black;
+    color: #fff;
+    width: 120px;
+    margin: 0px 20px;
+    padding: 9px 20px;
+    transition: .4s;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.link-group{
+padding: 40px 0px;
+}
+.admin-panel a:hover, .user-table a:hover ,.role-table a:hover{
+background-color: brown;
+}

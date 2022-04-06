@@ -1,4 +1,4 @@
-import { React } from 'react';
+import React from "react";
 import {
     Container,
     Row,
@@ -7,29 +7,24 @@ import {
     Button,
     Form
 } from 'react-bootstrap';
-import './adminPanel.scss';
+// import '../adminPanel.scss';
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
 import { BsPlusLg } from 'react-icons/bs';
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserDetailsAction } from '../../Redux/Action/adminAction';
 
 
-const AdminPanel = () => {
-    const dispatch = useDispatch();
-    const getNewUser = useSelector((state)=>state.AdminReducer.data);
-    console.log("getNewUser",getNewUser);
+const Action = () =>{
+    
     const { register, handleSubmit , formState: { errors } } = useForm();
 
-    const onSubmit = (data) =>{
-        dispatch(getUserDetailsAction(data))
+    const onSubmit = (role) =>{
+      console.warn("Action Data",role);
     }
-
-    return (
+    return(
         <>
             {/* <Row>
                 <Col>
-                    <h1 className='page-title'>Admin Panel Demo</h1>
+                    <h1 className='page-title'>Action Panel Demo</h1>
                 </Col>
             </Row> */}
             <div className='admin-wrapper'>
@@ -37,15 +32,13 @@ const AdminPanel = () => {
                     <Row>
                         <Col md={12}>
                             <div className='admin-section'>
-                                <h2 className='admin-title'>User Table</h2>
+                                <h2 className='admin-title'>Action Table</h2>
                                 <div className='table-responsive'>
                                     <Table striped hover>
                                         <thead>
                                             <tr>
-                                                <th>Username</th>
-                                                <th>Email</th>
-                                                <th>Group ID</th>
-                                                <th>Password</th>
+                                                <th>Actioncode</th>
+                                                <th>ActionName</th>
                                                 <th>Status</th>
                                                 <th>Created Date</th>
                                                 <th>Expiry Date</th>
@@ -58,11 +51,12 @@ const AdminPanel = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {
-                                                getNewUser.map((item,index)=>
+                                            
+                                            {/* {
+                                                getroledata.map((item,index)=>
                                             <tr key={index}>
-                                                <td>{item.userName}</td>
-                                                <td>{item.email}</td>
+                                                <td>{item.roleCode}</td>
+                                                <td>{item.roleName}</td>
                                                 <td>{item.groupId}</td>
                                                 <td>{item.password}</td>
                                                 <td>
@@ -77,11 +71,10 @@ const AdminPanel = () => {
                                                 </td>
                                             </tr>
                                             )
-                                        }
-                                            {/* <tr>
+                                        } */}
+                                            <tr>
+                                                <td>0012</td>
                                                 <td>Allie Grater</td>
-                                                <td>#0012</td>
-                                                <td>*****</td>
                                                 <td>
                                                     <span className='status inactive'>Inactive</span>
                                                 </td>
@@ -92,8 +85,14 @@ const AdminPanel = () => {
                                                         <AiFillEdit />
                                                     </Button>
                                                 </td>
-                                            </tr> */}
+                                                <td>#0012</td>
+                                                <td>admin</td>
+                                                <td>admin</td>
+                                                <td>01/01/2001</td>
+                                                <td>05/05/2002</td>
+                                            </tr>
                                             {/* <tr>
+                                                <td>0013</td>
                                                 <td>Minnie Van Ryder</td>
                                                 <td>#0013</td>
                                                 <td>*****</td>
@@ -109,6 +108,7 @@ const AdminPanel = () => {
                                                 </td>
                                             </tr> */}
                                             {/* <tr>
+                                                <td>0014</td>
                                                 <td>Chris Anthemum</td>
                                                 <td>#0014</td>
                                                 <td>*****</td>
@@ -137,48 +137,45 @@ const AdminPanel = () => {
                                 <hr />
                             </div>
                             <div className='admin-section'>
-                                <h2 className='admin-title'>User Form</h2>
+                                <h2 className='admin-title'>Action Form</h2>
                                 <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
                                     <Row>
                                         <Col md={4}>
-                                            <Form.Group className="mb-4 form-main">
-                                                <Form.Label>User Name</Form.Label>
-                                                <span className='error'>
-                                                {errors?.userName?.type === "required" && <p>*</p>}
-                                                </span>
+                                            <Form.Group className="mb-4">
+                                                <Form.Label>Action Code</Form.Label>
                                                 <Form.Control type="text" 
-                                                {...register("userName",{required: true,})} 
-                                                placeholder="ex: John Doe" />
+                                                {...register("actionCode",{required: true,})} 
+                                                placeholder="ex: #0012" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Email</Form.Label>
-                                                <Form.Control type="Email" {...register("email")} placeholder="ex: Johndoe@gmail.com" />
+                                                <Form.Label>Action Name</Form.Label>
+                                                <Form.Control type="text" {...register("actionName")} placeholder="ex: Action_Name" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Group ID</Form.Label>
-                                                <Form.Control type="text" {...register("groupId")} placeholder="ex: abc" />
+                                                <Form.Label>canCreate</Form.Label>
+                                                <Form.Control type="text" {...register("canCreate")} placeholder="ex: true/false" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Password</Form.Label>
-                                                <Form.Control type="password" {...register("password")} placeholder="ex: Password" />
+                                                <Form.Label>canUpdate</Form.Label>
+                                                <Form.Control type="text" {...register("canUpdate")} placeholder="ex: true/false" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Created Date</Form.Label>
-                                                <Form.Control type="date" {...register("createdDate")} placeholder="ex: 25/12/2021" />
+                                                <Form.Label>canDelete</Form.Label>
+                                                <Form.Control type="text" {...register("canDelete")} placeholder="ex: true/false" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Expiry Date</Form.Label>
-                                                <Form.Control type="date" {...register("expiryDate")} placeholder="ex: 25/12/2021" />
+                                                <Form.Label>canRead</Form.Label>
+                                                <Form.Control type="text" {...register("canRead")} placeholder="ex: true/false" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
@@ -247,4 +244,4 @@ const AdminPanel = () => {
     )
 }
 
-export default AdminPanel;
+export default Action;

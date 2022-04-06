@@ -1,7 +1,10 @@
 import { combineReducers } from "redux";
 import AdminReducer from "./AdminReducer";
+import RoleReducer from "./RoleReducer";
+
 const rootReducer = combineReducers({
-    AdminReducer
+    AdminReducer,
+    RoleReducer
 })
 
 export default rootReducer;
