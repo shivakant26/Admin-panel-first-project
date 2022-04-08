@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useEffect, useState } from 'react';
 import {
     Container,
     Row,
@@ -8,7 +8,7 @@ import {
     Form
 } from 'react-bootstrap';
 import './adminPanel.scss';
-import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
+import { AiFillDelete, AiFillEdit, AiOutlineSearch } from 'react-icons/ai';
 import { BsPlusLg } from 'react-icons/bs';
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,13 +17,31 @@ import { getUserDetailsAction } from '../../Redux/Action/adminAction';
 
 const AdminPanel = () => {
     const dispatch = useDispatch();
+    const [ searchText , setSearchText ] = useState("");
+    
     const getNewUser = useSelector((state)=>state.AdminReducer.data);
-    console.log("getNewUser",getNewUser);
+    // console.log("getNewUser",getNewUser);
+    const [ List , setList ] = useState(getNewUser);
     const { register, handleSubmit , formState: { errors } } = useForm();
 
     const onSubmit = (data) =>{
         dispatch(getUserDetailsAction(data))
     }
+    const search = (e) =>{
+        const searchText = e.target.value;
+        let filterdata = getNewUser.filter((el)=>{
+            return el.username.toLowerCase().includes(searchText.toLowerCase()) ||
+                   el.email.toLowerCase().includes(searchText.toLowerCase())
+        })
+        setList(filterdata);
+        // console.warn("click",filterdata);
+    }
+
+    useEffect(()=>{
+        if(getNewUser){
+            setList(getNewUser)
+        }
+    },[getNewUser])
 
     return (
         <>
@@ -37,7 +55,16 @@ const AdminPanel = () => {
                     <Row>
                         <Col md={12}>
                             <div className='admin-section'>
-                                <h2 className='admin-title'>User Table</h2>
+                                {/* <h2 className='admin-title'>User Table</h2> */}
+                                <div className='admin-header'>
+                                    <h2 className='admin-title'>User Table</h2>
+                                    <div className='search'>
+                                        <input type="text" placeholder='Search'
+                                        // value={searchText} 
+                                        onChange={search}/>
+                                        <AiOutlineSearch />
+                                    </div>
+                                </div>
                                 <div className='table-responsive'>
                                     <Table striped hover>
                                         <thead>
@@ -59,9 +86,9 @@ const AdminPanel = () => {
                                         </thead>
                                         <tbody>
                                             {
-                                                getNewUser.map((item,index)=>
+                                                List.map((item,index)=>
                                             <tr key={index}>
-                                                <td>{item.userName}</td>
+                                                <td>{item.username}</td>
                                                 <td>{item.email}</td>
                                                 <td>{item.groupId}</td>
                                                 <td>{item.password}</td>
@@ -125,18 +152,17 @@ const AdminPanel = () => {
                                             </tr> */}
                                         </tbody>
                                     </Table>
-                                    <Col md={12}>
+                                </div>
+                                <Col md={12}>
                                         <Form.Group className="table-actions">
-                                            <Button type="submit" className='btn-blue'>
+                                            <Button type="submit"  className='admin-page-btn'>
                                                 Add More
                                                 <BsPlusLg className='icon' />
                                             </Button>
                                         </Form.Group>
                                     </Col>
-                                </div>
-                                <hr />
                             </div>
-                            <div className='admin-section'>
+                            <div className='admin-section admin-section-page'>
                                 <h2 className='admin-title'>User Form</h2>
                                 <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
                                     <Row>
@@ -214,6 +240,7 @@ const AdminPanel = () => {
                                         <Col md={4}>
                                             <Form.Group className="mb-4" {...register("status")}>
                                                 <Form.Label>Status</Form.Label>
+                                                <div className='status-check'>
                                                 <Form.Check
                                                     inline
                                                     label="Active"
@@ -228,11 +255,12 @@ const AdminPanel = () => {
                                                     type="radio"
                                                     id='2'
                                                 />
+                                                </div>
                                             </Form.Group>
                                         </Col>
                                         <Col md={12}>
                                             <Form.Group className="form-actions">
-                                                <Button type="submit" className='btn-blue'>Submit</Button>
+                                                <Button type="submit" className='admin-page-btn'>Submit</Button>
                                             </Form.Group>
                                         </Col>
                                     </Row>

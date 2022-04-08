@@ -18,17 +18,15 @@ const BusinessEntity = () => {
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>Business Entity</Accordion.Header>
                     <Accordion.Body>
-                        {/* <h3>Accodian</h3> */}
                         <div className='admin-section'>
-                            {/* <h2 className='admin-title'>User Form</h2> */}
                             <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
                                 <Row>
                                     <Col md={4}>
                                         <Form.Group className="mb-4 form-main">
                                             <Form.Label>Entity Legal Name</Form.Label>
-                                            <span className='error'>
+                                            {/* <span className='error'>
                                                 {errors?.entityLegalName?.type === "required" && <p>*</p>}
-                                            </span>
+                                            </span> */}
                                             <Form.Control type="text"
                                                 {...register("entityLegalName", { required: true, })}
                                                 placeholder="ex: Entity Legal Name" />
@@ -145,21 +143,18 @@ const BusinessEntity = () => {
                                     </Col>
                                     <Col md={12}>
                                         <Form.Group className="form-actions">
-                                            <Button type="submit" className='btn-blue'>Submit</Button>
+                                            <Button type="submit" className='admin-page-btn'>Submit</Button>
                                         </Form.Group>
                                     </Col>
                                 </Row>
                             </Form>
-                            <hr />
                         </div>
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">
                     <Accordion.Header>Entity Email List</Accordion.Header>
                     <Accordion.Body>
-                        {/* <h3>Accodian</h3> */}
                         <div className='admin-section'>
-                            {/* <h2 className='admin-title'>User Form</h2> */}
                             <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
                                 <Row>
                                     <Col md={4}>
@@ -224,18 +219,19 @@ const BusinessEntity = () => {
                                     </Col>
                                     <Col md={12}>
                                         <Form.Group className="form-actions">
-                                            <Button type="submit" className='btn-blue'>Submit</Button>
+                                            <Button type="submit" className='admin-page-btn'>Submit</Button>
                                         </Form.Group>
                                     </Col>
                                 </Row>
                             </Form>
-                            <hr />
                         </div>
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="2">
                     <Accordion.Header>Calculation</Accordion.Header>
                     <Accordion.Body>
+                    <div className='admin-section'>
+                            <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
                         <Row>
                             <Col md={4}>
                                 <Dropdown>
@@ -273,14 +269,21 @@ const BusinessEntity = () => {
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </Col>
-                            
+
                             <Col md={4}>
                                 <Form.Group className="mb-4">
                                     <Form.Label>Entity ID</Form.Label>
                                     <Form.Control type="text" {...register("EntityId")} placeholder="ex: true/false" />
                                 </Form.Group>
                             </Col>
+                            <Col md={12}>
+                                <Form.Group className="form-actions">
+                                    <Button type="submit" className='admin-page-btn'>Submit</Button>
+                                </Form.Group>
+                            </Col>
                         </Row>
+                        </Form>
+                    </div>
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="3">
@@ -356,22 +359,21 @@ const BusinessEntity = () => {
                                     </Col>
                                     <Col md={12}>
                                         <Form.Group className="form-actions">
-                                            <Button type="submit" className='btn-blue'>Submit</Button>
+                                            <Button type="submit" className='admin-page-btn'>Submit</Button>
                                         </Form.Group>
                                     </Col>
                                 </Row>
                             </Form>
-                            <hr />
                         </div>
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="4">
                     <Accordion.Header>Tax Document</Accordion.Header>
                     <Accordion.Body>
-                    <div className='admin-section'>
+                        <div className='admin-section'>
                             <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
                                 <Row>
-                                    
+
                                     <Col md={4}>
                                         <Form.Group className="mb-4">
                                             <Form.Label>Document Name</Form.Label>
@@ -404,12 +406,11 @@ const BusinessEntity = () => {
                                     </Col>
                                     <Col md={12}>
                                         <Form.Group className="form-actions">
-                                            <Button type="submit" className='btn-blue'>Submit</Button>
+                                            <Button type="submit" className='admin-page-btn'>Submit</Button>
                                         </Form.Group>
                                     </Col>
                                 </Row>
                             </Form>
-                            <hr />
                         </div>
                     </Accordion.Body>
                 </Accordion.Item>

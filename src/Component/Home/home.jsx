@@ -9,7 +9,7 @@ import Role from "../Role/role";
 const Home = () => {
     const [key, setKey] = useState('admin');
     return (
-        <div>
+        <div className="tabs-section">
             {/* <h1>Home Component</h1> */}
             {/* <div className="link-group">
             <span className="admin-panel">
