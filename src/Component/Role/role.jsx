@@ -33,6 +33,7 @@ const Role = () =>{
                 </Col>
             </Row> */}
             <div className='admin-wrapper'>
+            <div className="adminContainer">       
                 <Container>
                     <Row>
                         <Col md={12}>
@@ -227,6 +228,7 @@ const Role = () =>{
                         </Col>
                     </Row>
                 </Container>
+                </div>
             </div>
         </>
     )

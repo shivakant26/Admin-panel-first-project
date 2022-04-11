@@ -14,7 +14,7 @@ const BusinessEntity = () => {
     return (
         <div className="admin-wrapper">
             {/* <h2>Business Entity component</h2> */}
-            <Accordion defaultActiveKey="0">
+            <Accordion defaultActiveKey="0" className="adminContainer">
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>Business Entity</Accordion.Header>
                     <Accordion.Body>
@@ -309,6 +309,12 @@ const BusinessEntity = () => {
                         <h2 className='admin-title'>Entity Email Form</h2>
                             <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
                                 <Row>
+                                <Col md={4}>
+                                        <Form.Group className="mb-4">
+                                            <Form.Label>Entity ID</Form.Label>
+                                            <Form.Control type="text" {...register("entityId")} placeholder="ex: Entity Id" />
+                                        </Form.Group>
+                                    </Col>
                                     <Col md={4}>
                                         <Form.Group className="mb-4 form-main">
                                             <Form.Label>Email</Form.Label>
@@ -326,55 +332,38 @@ const BusinessEntity = () => {
                                             <Form.Control type="text" {...register("salutation")} placeholder="ex: Salutation" />
                                         </Form.Group>
                                     </Col>
+                                    
                                     <Col md={4}>
                                         <Form.Group className="mb-4">
-                                            <Form.Label>Entity ID</Form.Label>
-                                            <Form.Control type="text" {...register("entityId")} placeholder="ex: Entity Id" />
-                                        </Form.Group>
-                                    </Col>
-                                    <Col md={4}>
-                                        <Form.Group className="mb-4">
-                                            {/* <Form.Label>Claim </Form.Label> */}
+                                            <Form.Label>Claim </Form.Label>
                                             {/* <Form.Control type="text" {...register("claim")} placeholder="ex: true/false" /> */}
-                                            <Dropdown>
-                                                <Dropdown.Toggle id="dropdown-basic" {...register("claim")}>
-                                                    Claim
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu>
-                                                    <Dropdown.Item href="#/action-1">true</Dropdown.Item>
-                                                    <Dropdown.Item href="#/action-2">false</Dropdown.Item>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
+                                            <Form.Select>
+                                                <option>Select Claim</option>
+                                                <option value="1">true</option>
+                                                <option value="2">false</option>
+                                            </Form.Select>
                                         </Form.Group>
                                     </Col>
                                     <Col md={4}>
                                         <Form.Group className="mb-4">
-                                            {/* <Form.Label>Underwriting</Form.Label> */}
+                                            <Form.Label>Underwriting</Form.Label>
                                             {/* <Form.Control type="text" {...register("underwriting")} placeholder="ex: true/false" /> */}
-                                            <Dropdown>
-                                                <Dropdown.Toggle id="dropdown-basic" {...register("underwriting")}>
-                                                    Underwriting
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu>
-                                                    <Dropdown.Item href="#/action-1">true</Dropdown.Item>
-                                                    <Dropdown.Item href="#/action-2">false</Dropdown.Item>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
+                                            <Form.Select aria-label="Default select example">
+                                                <option>Choose Underwriting</option>
+                                                <option value="1">true</option>
+                                                <option value="2">false</option>
+                                            </Form.Select>
                                         </Form.Group>
                                     </Col>
                                     <Col md={4}>
                                         <Form.Group className="mb-4">
-                                            {/* <Form.Label>Accounting</Form.Label> */}
+                                            <Form.Label>Accounting</Form.Label>
                                             {/* <Form.Control type="text" {...register("accounting")} placeholder="ex: true/false" /> */}
-                                            <Dropdown>
-                                                <Dropdown.Toggle id="dropdown-basic" {...register("accounting")}>
-                                                    Accounting
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu>
-                                                    <Dropdown.Item href="#/action-1">true</Dropdown.Item>
-                                                    <Dropdown.Item href="#/action-2">false</Dropdown.Item>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
+                                            <Form.Select aria-label="Default select example">
+                                                <option>Choose Accounting</option>
+                                                <option value="1">true</option>
+                                                <option value="2">false</option>
+                                            </Form.Select>
                                         </Form.Group>
                                     </Col>
                                     <Col md={4}>
@@ -483,6 +472,12 @@ const BusinessEntity = () => {
                         <h2 className='admin-title'>Tax Form</h2>
                             <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
                                 <Row>
+                                <Col md={4}>
+                                        <Form.Group className="mb-4">
+                                            <Form.Label>Entity ID</Form.Label>
+                                            <Form.Control type="text" {...register("entityId")} placeholder="ex: Entity Id" />
+                                        </Form.Group>
+                                    </Col>
                                     <Col md={4}>
                                         <Form.Group className="mb-4 form-main">
                                             <Form.Label>Tax Name</Form.Label>
@@ -520,70 +515,49 @@ const BusinessEntity = () => {
                                     </Col>
                                     <Col md={4}>
                                         <Form.Group className="mb-4">
-                                            {/* <Form.Label>IsTDS WTH Req</Form.Label> */}
+                                            <Form.Label>IsTDS WTH Req</Form.Label>
                                             {/* <Form.Control type="text" {...register("isTdsWthReq")} placeholder="ex: true/false" /> */}
-                                            <Dropdown>
-                                                <Dropdown.Toggle id="dropdown-basic" {...register("isTdsWthReq")}>
-                                                    IsTDS WTH Req
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu>
-                                                    <Dropdown.Item href="#/action-1">true</Dropdown.Item>
-                                                    <Dropdown.Item href="#/action-2">false</Dropdown.Item>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
+                                            <Form.Select aria-label="Default select example">
+                                                <option>Select Action</option>
+                                                <option value="1">true</option>
+                                                <option value="2">false</option>
+                                            </Form.Select>
                                         </Form.Group>
                                     </Col>
                                     <Col md={4}>
                                         <Form.Group className="mb-4">
-                                            {/* <Form.Label>IsTax Under Rev Charge</Form.Label> */}
+                                            <Form.Label>IsTax Under Rev Charge</Form.Label>
                                             {/* <Form.Control type="text" {...register("isTaxUnderRevCharge")} placeholder="ex: true/false" /> */}
-                                            <Dropdown>
-                                                <Dropdown.Toggle id="dropdown-basic" {...register("isTaxUnderRevCharge")}>
-                                                    IsTax Under Rev Charge
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu>
-                                                    <Dropdown.Item href="#/action-1">true</Dropdown.Item>
-                                                    <Dropdown.Item href="#/action-2">false</Dropdown.Item>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
+                                            <Form.Select aria-label="Default select example">
+                                                <option>Select Action</option>
+                                                <option value="1">true</option>
+                                                <option value="2">false</option>
+                                            </Form.Select>
                                         </Form.Group>
                                     </Col>
                                     <Col md={4}>
                                         <Form.Group className="mb-4">
-                                            {/* <Form.Label>isActive</Form.Label> */}
+                                            <Form.Label>isActive</Form.Label>
                                             {/* <Form.Control type="text" {...register("isActive")} placeholder="ex: true/false" /> */}
-                                            <Dropdown>
-                                                <Dropdown.Toggle id="dropdown-basic" {...register("isActive")}>
-                                                    isActive
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu>
-                                                    <Dropdown.Item href="#/action-1">true</Dropdown.Item>
-                                                    <Dropdown.Item href="#/action-2">false</Dropdown.Item>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
+                                            <Form.Select aria-label="Default select example">
+                                                <option>Select Action</option>
+                                                <option value="1">true</option>
+                                                <option value="2">false</option>
+                                            </Form.Select>
                                         </Form.Group>
                                     </Col>
                                     <Col md={4}>
                                         <Form.Group className="mb-4">
-                                            {/* <Form.Label>IsNegative</Form.Label> */}
+                                            <Form.Label>IsNegative</Form.Label>
                                             {/* <Form.Control type="text" {...register("isNegative")} placeholder="ex: true/false" /> */}
-                                            <Dropdown>
-                                                <Dropdown.Toggle id="dropdown-basic" {...register("isNegative")}>
-                                                    IsNegative
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu>
-                                                    <Dropdown.Item href="#/action-1">true</Dropdown.Item>
-                                                    <Dropdown.Item href="#/action-2">false</Dropdown.Item>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
+                                            <Form.Select aria-label="Default select example">
+                                                <option>Select Action</option>
+                                                <option value="1">true</option>
+                                                <option value="2">false</option>
+                                            </Form.Select>
                                         </Form.Group>
                                     </Col>
-                                    <Col md={4}>
-                                        <Form.Group className="mb-4">
-                                            <Form.Label>Entity ID</Form.Label>
-                                            <Form.Control type="text" {...register("entityId")} placeholder="ex: Entity Id" />
-                                        </Form.Group>
-                                    </Col>
+                                    
                                     <Col md={12}>
                                         <Form.Group className="form-actions">
                                             <Button type="submit" className='admin-page-btn'>Submit</Button>
@@ -659,7 +633,12 @@ const BusinessEntity = () => {
                         <h2 className='admin-title'>Tax Document Form</h2>
                             <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
                                 <Row>
-
+                                <Col md={4}>
+                                        <Form.Group className="mb-4">
+                                            <Form.Label>Entity ID</Form.Label>
+                                            <Form.Control type="text" {...register("entityId")} placeholder="ex: Entity Id" />
+                                        </Form.Group>
+                                    </Col>
                                     <Col md={4}>
                                         <Form.Group className="mb-4">
                                             <Form.Label>Document Name</Form.Label>
@@ -668,17 +647,13 @@ const BusinessEntity = () => {
                                     </Col>
                                     <Col md={4}>
                                         <Form.Group className="mb-4">
-                                            {/* <Form.Label>IsRequired</Form.Label> */}
+                                            <Form.Label>IsRequired</Form.Label>
                                             {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
-                                            <Dropdown>
-                                                <Dropdown.Toggle id="dropdown-basic">
-                                                    IsRequired
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu>
-                                                    <Dropdown.Item href="#/action-1">true</Dropdown.Item>
-                                                    <Dropdown.Item href="#/action-2">false</Dropdown.Item>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
+                                            <Form.Select aria-label="Default select example">
+                                                <option>--Select Action--</option>
+                                                <option value="1">true</option>
+                                                <option value="2">false</option>
+                                            </Form.Select>
                                         </Form.Group>
                                     </Col>
                                     <Col md={4}>
@@ -693,12 +668,7 @@ const BusinessEntity = () => {
                                             <Form.Control type="date" {...register("tdsWthTax")} placeholder="ex: 25/06/2005" />
                                         </Form.Group>
                                     </Col>
-                                    <Col md={4}>
-                                        <Form.Group className="mb-4">
-                                            <Form.Label>Entity ID</Form.Label>
-                                            <Form.Control type="text" {...register("entityId")} placeholder="ex: Entity Id" />
-                                        </Form.Group>
-                                    </Col>
+                                    
                                     <Col md={12}>
                                         <Form.Group className="form-actions">
                                             <Button type="submit" className='admin-page-btn'>Submit</Button>
@@ -713,172 +683,166 @@ const BusinessEntity = () => {
                     <Accordion.Header>Calculation</Accordion.Header>
                     <Accordion.Body>
                     <div className='admin-section'>
-                            <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
+                        <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
                         <Row>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                        field1Type
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">value 1</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">value 2</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                        field1Name
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">value 1</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">value 2</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                        operation1_2
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">value 1</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">value 2</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                       field2Type
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">value 1</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">value 2</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                       Field2Name
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">value 1</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">value 2</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                       Operation2_3
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">value 1</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">value 2</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                       field3Type
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">value 1</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">value 2</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                      field3Name
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">value 1</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">value 2</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                       operation3_4
-                                    </Dropdown.Toggle>
-
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">Field2Name</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">Operation2_3</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                      field4Type
-                                    </Dropdown.Toggle>
-
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">field3Name</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">operation3_4</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                      field4Name
-                                    </Dropdown.Toggle>
-
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">field3Name</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">operation3_4</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                       operation4_5
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">field3Name</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">operation3_4</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                      field5Type
-                                    </Dropdown.Toggle>
-
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">field3Name</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">operation3_4</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                            <Col md={4}>
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic">
-                                      field5Name
-                                    </Dropdown.Toggle>
-
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">field3Name</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">operation3_4</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-
-                            <Col md={4}>
+                        <Col md={4} className="mb-2">
                                 <Form.Group className="mb-4">
                                     <Form.Label>Entity ID</Form.Label>
                                     <Form.Control type="text" {...register("EntityId")} placeholder="ex: Entity Id" />
+                                </Form.Group>
+                            </Col>
+                        <Col md={4}>
+                            <Form.Group className="mb-4">
+                                <Form.Label>field1Type</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
+                                </Form.Group>
+                        </Col>
+                            <Col md={4} className="mb-2">
+                            <Form.Group className="mb-4">
+                                <Form.Label>field1Name</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4} className="mb-2">
+                                <Form.Group className="mb-4">
+                                <Form.Label>operation1_2</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4} className="mb-2">
+                                <Form.Group className="mb-4">
+                                <Form.Label>field2Type</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4} className="mb-2">
+                                <Form.Group className="mb-4">
+                                <Form.Label>Field2Name</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4} className="mb-2">
+                                <Form.Group className="mb-4">
+                                <Form.Label>Operation2_3</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4} className="mb-2">
+                                <Form.Group className="mb-4">
+                                <Form.Label>field3Type</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4} className="mb-2">
+                                <Form.Group className="mb-4">
+                                <Form.Label>field3Name</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4} className="mb-2">
+                                <Form.Group className="mb-4">
+                                <Form.Label>operation3_4</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4} className="mb-2">
+                                <Form.Group className="mb-4">
+                                <Form.Label>field4Type</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4} className="mb-2">
+                                <Form.Group className="mb-4">
+                                <Form.Label>field4Name</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4} className="mb-2">
+                                <Form.Group className="mb-4">
+                                <Form.Label>operation4_5</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4} className="mb-2">
+                                <Form.Group className="mb-4">
+                                <Form.Label>field5Type</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4} className="mb-2">
+                                <Form.Group className="mb-4">
+                                <Form.Label>field5Name</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">true</option>
+                                        <option value="2">false</option>
+                                    </Form.Select>
                                 </Form.Group>
                             </Col>
                             <Col md={12}>

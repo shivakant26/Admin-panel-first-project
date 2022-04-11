@@ -29,6 +29,7 @@ const Action = () =>{
                 </Col>
             </Row> */}
             <div className='admin-wrapper'>
+            <div className="adminContainer">       
                 <Container>
                     <Row>
                         <Col md={12}>
@@ -151,25 +152,44 @@ const Action = () =>{
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
                                                 <Form.Label>canCreate</Form.Label>
-                                                <Form.Control type="text" {...register("canCreate")} placeholder="ex: true/false" />
+                                            <Form.Select>
+                                                <option>Choose Action</option>
+                                                <option value="1">true</option>
+                                                <option value="2">false</option>
+                                            </Form.Select>
                                             </Form.Group>
                                         </Col>
-                                        <Col md={4}>
+                                        <Col md={4} className="mb-2">
                                             <Form.Group className="mb-4">
                                                 <Form.Label>canUpdate</Form.Label>
-                                                <Form.Control type="text" {...register("canUpdate")} placeholder="ex: true/false" />
+                                                {/* <Form.Control type="text" {...register("canUpdate")} placeholder="ex: true/false" /> */}
+                                                <Form.Select>
+                                                <option>Choose Action</option>
+                                                <option value="1">true</option>
+                                                <option value="2">false</option>
+                                            </Form.Select>
                                             </Form.Group>
                                         </Col>
-                                        <Col md={4}>
+                                        <Col md={4} className="mb-2">
                                             <Form.Group className="mb-4">
                                                 <Form.Label>canDelete</Form.Label>
-                                                <Form.Control type="text" {...register("canDelete")} placeholder="ex: true/false" />
+                                                {/* <Form.Control type="text" {...register("canDelete")} placeholder="ex: true/false" /> */}
+                                                <Form.Select>
+                                                <option>Choose Action</option>
+                                                <option value="1">true</option>
+                                                <option value="2">false</option>
+                                            </Form.Select>
                                             </Form.Group>
                                         </Col>
-                                        <Col md={4}>
+                                        <Col md={4} className="mb-2">
                                             <Form.Group className="mb-4">
                                                 <Form.Label>canRead</Form.Label>
-                                                <Form.Control type="text" {...register("canRead")} placeholder="ex: true/false" />
+                                                {/* <Form.Control type="text" {...register("canRead")} placeholder="ex: true/false" /> */}
+                                                <Form.Select>
+                                                <option>Choose Action</option>
+                                                <option value="1">true</option>
+                                                <option value="2">false</option>
+                                            </Form.Select>
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
@@ -235,6 +255,7 @@ const Action = () =>{
                         </Col>
                     </Row>
                 </Container>
+                </div>
             </div>
         </>
     )
