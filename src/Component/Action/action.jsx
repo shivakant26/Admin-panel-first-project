@@ -5,7 +5,8 @@ import {
     Col,
     Table,
     Button,
-    Form
+    Form,
+    Dropdown
 } from 'react-bootstrap';
 // import '../adminPanel.scss';
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
@@ -45,11 +46,7 @@ const Action = () =>{
                                                 <th>Created Date</th>
                                                 <th>Expiry Date</th>
                                                 <th>Actions</th>
-                                                <th>Last_Op_Ind</th>
-                                                <th>Updated_By</th>
-                                                <th>Created_By</th>
-                                                <th>Update_Date</th>
-                                                <th>Created_Date</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -87,11 +84,7 @@ const Action = () =>{
                                                         <AiFillEdit />
                                                     </Button>
                                                 </td>
-                                                <td>#0012</td>
-                                                <td>admin</td>
-                                                <td>admin</td>
-                                                <td>01/01/2001</td>
-                                                <td>05/05/2002</td>
+                                               
                                             </tr>
                                             {/* <tr>
                                                 <td>0013</td>
@@ -152,7 +145,7 @@ const Action = () =>{
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
                                                 <Form.Label>Action Name</Form.Label>
-                                                <Form.Control type="text" {...register("actionName")} placeholder="ex: Action_Name" />
+                                                <Form.Control type="text" {...register("actionName")} placeholder="ex: Action Name" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
@@ -181,31 +174,31 @@ const Action = () =>{
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Last_Op_Ind</Form.Label>
-                                                <Form.Control type="text" {...register("lastOptionIndex")} placeholder="ex: Last_op_Ind" />
+                                                <Form.Label>Last Op Ind</Form.Label>
+                                                <Form.Control type="text" {...register("lastOptionIndex")} placeholder="ex: Last op Ind" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Updated_By</Form.Label>
-                                                <Form.Control type="text" {...register("updatedBy")} placeholder="ex: Updated_By" />
+                                                <Form.Label>Updated By</Form.Label>
+                                                <Form.Control type="text" {...register("updatedBy")} placeholder="ex: Updated By" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Created_By</Form.Label>
-                                                <Form.Control type="text" {...register("createBy")} placeholder="ex: Created_By" />
+                                                <Form.Label>Created By</Form.Label>
+                                                <Form.Control type="text" {...register("createBy")} placeholder="ex: Created By" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Update_Date</Form.Label>
+                                                <Form.Label>Update Date</Form.Label>
                                                 <Form.Control type="date" {...register("updateDate")} placeholder="ex: 21/09/2004" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Created_Date</Form.Label>
+                                                <Form.Label>Created Date</Form.Label>
                                                 <Form.Control type="date" {...register("createdDate")} placeholder="ex: 22/11/2004" />
                                             </Form.Group>
                                         </Col>

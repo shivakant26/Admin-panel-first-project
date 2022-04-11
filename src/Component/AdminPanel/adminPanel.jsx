@@ -77,11 +77,6 @@ const AdminPanel = () => {
                                                 <th>Created Date</th>
                                                 <th>Expiry Date</th>
                                                 <th>Actions</th>
-                                                <th>Last_Op_Ind</th>
-                                                <th>Updated_By</th>
-                                                <th>Created_By</th>
-                                                <th>Update_Date</th>
-                                                <th>Created_Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -209,31 +204,31 @@ const AdminPanel = () => {
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Last_Op_Ind</Form.Label>
-                                                <Form.Control type="text" {...register("lastOptionIndex")} placeholder="ex: Last_op_Ind" />
+                                                <Form.Label>Last Op Ind</Form.Label>
+                                                <Form.Control type="text" {...register("lastOptionIndex")} placeholder="ex: Last op Ind" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Updated_By</Form.Label>
-                                                <Form.Control type="text" {...register("updatedBy")} placeholder="ex: Updated_By" />
+                                                <Form.Label>Updated By</Form.Label>
+                                                <Form.Control type="text" {...register("updatedBy")} placeholder="ex: Updated By" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Created_By</Form.Label>
-                                                <Form.Control type="text" {...register("createBy")} placeholder="ex: Created_By" />
+                                                <Form.Label>Created By</Form.Label>
+                                                <Form.Control type="text" {...register("createBy")} placeholder="ex: Created By" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Update_Date</Form.Label>
+                                                <Form.Label>Update Date</Form.Label>
                                                 <Form.Control type="date" {...register("updateDate")} placeholder="ex: 21/09/2004" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Created_Date</Form.Label>
+                                                <Form.Label>Created Date</Form.Label>
                                                 <Form.Control type="date" {...register("createdDate")} placeholder="ex: 22/11/2004" />
                                             </Form.Group>
                                         </Col>
