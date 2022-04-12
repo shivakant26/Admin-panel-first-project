@@ -77,7 +77,8 @@ const AdminPanel = () => {
                                                 <th>Status</th>
                                                 <th>Created Date</th>
                                                 <th>Expiry Date</th>
-                                                <th>Actions</th>
+                                                <th> </th>
+                                                {/* <th>Actions</th> */}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -104,36 +105,6 @@ const AdminPanel = () => {
                                             {/* <tr>
                                                 <td>Allie Grater</td>
                                                 <td>#0012</td>
-                                                <td>*****</td>
-                                                <td>
-                                                    <span className='status inactive'>Inactive</span>
-                                                </td>
-                                                <td>01/03/2022</td>
-                                                <td>01/03/2022</td>
-                                                <td>
-                                                    <Button className='btn-action edit'>
-                                                        <AiFillEdit />
-                                                    </Button>
-                                                </td>
-                                            </tr> */}
-                                            {/* <tr>
-                                                <td>Minnie Van Ryder</td>
-                                                <td>#0013</td>
-                                                <td>*****</td>
-                                                <td>
-                                                    <span className='status active'>Active</span>
-                                                </td>
-                                                <td>01/03/2022</td>
-                                                <td>01/03/2022</td>
-                                                <td>
-                                                    <Button className='btn-action delete'>
-                                                        <AiFillDelete />
-                                                    </Button>
-                                                </td>
-                                            </tr> */}
-                                            {/* <tr>
-                                                <td>Chris Anthemum</td>
-                                                <td>#0014</td>
                                                 <td>*****</td>
                                                 <td>
                                                     <span className='status inactive'>Inactive</span>
@@ -181,8 +152,13 @@ const AdminPanel = () => {
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Group ID</Form.Label>
-                                                <Form.Control type="text" {...register("groupId")} placeholder="ex: abc" />
+                                                <Form.Label>Group Code</Form.Label>
+                                                {/* <Form.Control type="text" {...register("groupId")} placeholder="ex: Group Code" /> */}
+                                                <Form.Select aria-label="Default select example">
+                                                <option>Select Entity Id</option>
+                                                <option value="1">value 1</option>
+                                                <option value="2">Value</option>
+                                            </Form.Select>
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>

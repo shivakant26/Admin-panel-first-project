@@ -50,7 +50,6 @@ const Role = () =>{
                                                 <th>Status</th>
                                                 <th>Created Date</th>
                                                 <th>Expiry Date</th>
-                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>

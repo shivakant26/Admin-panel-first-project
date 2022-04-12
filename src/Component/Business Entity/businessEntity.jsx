@@ -43,7 +43,7 @@ const BusinessEntity = () => {
                                                 <th>Income Tax Identification Number</th>
                                                 <th>TDS/WHT Rate Applicable</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -256,7 +256,7 @@ const BusinessEntity = () => {
                                                 <th>Underwriting</th>
                                                 <th>Accounting</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -308,13 +308,17 @@ const BusinessEntity = () => {
                         <div className='admin-section admin-section-page'>
                         <h2 className='admin-title'>Entity Email Form</h2>
                             <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
+                                <div>
+                                <Form.Label>Entity ID : 1002</Form.Label>
+                                </div>
                                 <Row>
-                                <Col md={4}>
+                                {/* <Col md={4}>
+                                    <label>Entity ID : 101</label>
                                         <Form.Group className="mb-4">
                                             <Form.Label>Entity ID</Form.Label>
                                             <Form.Control type="text" {...register("entityId")} placeholder="ex: Entity Id" />
                                         </Form.Group>
-                                    </Col>
+                                    </Col> */}
                                     <Col md={4}>
                                         <Form.Group className="mb-4 form-main">
                                             <Form.Label>Email</Form.Label>
@@ -418,7 +422,6 @@ const BusinessEntity = () => {
                                                 <th>isActive</th>
                                                 <th>IsNegative</th>
                                                 <th>Entity ID</th>
-                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -471,13 +474,16 @@ const BusinessEntity = () => {
                         <div className='admin-section admin-section-page'>
                         <h2 className='admin-title'>Tax Form</h2>
                             <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
+                                <div>
+                                <Form.Label>Entity ID : 1002</Form.Label>
+                                </div>
                                 <Row>
-                                <Col md={4}>
+                                {/* <Col md={4}>
                                         <Form.Group className="mb-4">
                                             <Form.Label>Entity ID</Form.Label>
                                             <Form.Control type="text" {...register("entityId")} placeholder="ex: Entity Id" />
                                         </Form.Group>
-                                    </Col>
+                                    </Col> */}
                                     <Col md={4}>
                                         <Form.Group className="mb-4 form-main">
                                             <Form.Label>Tax Name</Form.Label>
@@ -584,7 +590,6 @@ const BusinessEntity = () => {
                                                 <th>Start Date</th>
                                                 <th>End Date</th>
                                                 <th>Entity ID</th>
-                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -632,13 +637,16 @@ const BusinessEntity = () => {
                         <div className='admin-section admin-section-page'>
                         <h2 className='admin-title'>Tax Document Form</h2>
                             <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
+                                <div>
+                                 <Form.Label>Entity ID : 1002</Form.Label>
+                                </div>
                                 <Row>
-                                <Col md={4}>
+                                {/* <Col md={4}>
                                         <Form.Group className="mb-4">
                                             <Form.Label>Entity ID</Form.Label>
                                             <Form.Control type="text" {...register("entityId")} placeholder="ex: Entity Id" />
                                         </Form.Group>
-                                    </Col>
+                                    </Col> */}
                                     <Col md={4}>
                                         <Form.Group className="mb-4">
                                             <Form.Label>Document Name</Form.Label>
@@ -683,22 +691,103 @@ const BusinessEntity = () => {
                     <Accordion.Header>Calculation</Accordion.Header>
                     <Accordion.Body>
                     <div className='admin-section'>
+                                <div className='admin-header'>
+                                    <h2 className='admin-title'>Calculation Table</h2>
+                                </div>
+                                <div className='table-responsive'>
+                                    <Table striped hover>
+                                        <thead>
+                                            <tr>
+                                                <th>field1Type</th>
+                                                <th>field1Name</th>
+                                                <th>operation1_2</th>
+                                                <th>field2Type</th>
+                                                <th>Field2Name</th>
+                                                <th>Operation2_3</th>
+                                                <th>field3Type</th>
+                                                <th>field3Name</th>
+                                                <th>operation3_4</th>
+                                                <th>field4Type</th>
+                                                <th>field4Name</th>
+                                                <th>operation4_5</th>
+                                                <th>field5Type</th>
+                                                <th>field5Name</th>
+                                                <th>operation5_6</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <tr>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>sdf</td>
+                                                <td>
+                                                    <Button className='btn-action delete'>
+                                                        <AiFillDelete />
+                                                    </Button>
+                                                </td>
+                                            </tr>
+                                            {/* <tr>
+                                                <td>0012</td>
+                                                <td>Allie Grater</td>
+                                                <td>#0012</td>
+                                                <td>*****</td>
+                                                <td>
+                                                    <span className='status inactive'>Inactive</span>
+                                                </td>
+                                                <td>01/03/2022</td>
+                                                <td>01/03/2022</td>
+                                                <td>
+                                                    <Button className='btn-action edit'>
+                                                        <AiFillEdit />
+                                                    </Button>
+                                                </td>
+                                            </tr> */}
+                                        </tbody>
+                                    </Table>
+                                </div>
+                                <Col md={12}>
+                                        <Form.Group className="table-actions">
+                                            <Button type="submit" className='admin-page-btn'>
+                                                Add More
+                                                <BsPlusLg className='icon' />
+                                            </Button>
+                                        </Form.Group>
+                                    </Col>
+                        </div>
+                    <div className='admin-section admin-section-page'>
+                    <h2 className='admin-title'> Calculation Form</h2>
                         <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
+                            <div>
+                            <Form.Label>Entity ID : 1002</Form.Label>
+                            </div>
                         <Row>
-                        <Col md={4} className="mb-2">
+                        {/* <Col md={4} className="mb-2">
                                 <Form.Group className="mb-4">
                                     <Form.Label>Entity ID</Form.Label>
                                     <Form.Control type="text" {...register("EntityId")} placeholder="ex: Entity Id" />
                                 </Form.Group>
-                            </Col>
+                            </Col> */}
                         <Col md={4}>
                             <Form.Group className="mb-4">
                                 <Form.Label>field1Type</Form.Label>
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Standerd</option>
+                                        <option value="2">Tax</option>
                                     </Form.Select>
                                 </Form.Group>
                         </Col>
@@ -708,8 +797,12 @@ const BusinessEntity = () => {
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Brokerage</option>
+                                        <option value="2">Premium</option>
+                                        <option value="2">Total Premium</option>
+                                        <option value="2">Total Ceding Commission</option>
+                                        <option value="2">Field Value 1</option>
+                                        <option value="2">Field Value 2</option>
                                     </Form.Select>
                                 </Form.Group>
                             </Col>
@@ -719,8 +812,10 @@ const BusinessEntity = () => {
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Addition</option>
+                                        <option value="2">Subtraction</option>
+                                        <option value="2">Multiplication</option>
+                                        <option value="2">Division</option>
                                     </Form.Select>
                                 </Form.Group>
                             </Col>
@@ -730,8 +825,8 @@ const BusinessEntity = () => {
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Standerd</option>
+                                        <option value="2">Tax</option>
                                     </Form.Select>
                                 </Form.Group>
                             </Col>
@@ -741,8 +836,12 @@ const BusinessEntity = () => {
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Brokerage</option>
+                                        <option value="2">Premium</option>
+                                        <option value="2">Total Premium</option>
+                                        <option value="2">Total Ceding Commission</option>
+                                        <option value="2">Field Value 1</option>
+                                        <option value="2">Field Value 2</option>
                                     </Form.Select>
                                 </Form.Group>
                             </Col>
@@ -752,8 +851,10 @@ const BusinessEntity = () => {
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Addition</option>
+                                        <option value="2">Subtraction</option>
+                                        <option value="2">Multiplication</option>
+                                        <option value="2">Division</option>
                                     </Form.Select>
                                 </Form.Group>
                             </Col>
@@ -763,8 +864,8 @@ const BusinessEntity = () => {
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Standerd</option>
+                                        <option value="2">Tax</option>
                                     </Form.Select>
                                 </Form.Group>
                             </Col>
@@ -774,8 +875,12 @@ const BusinessEntity = () => {
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Brokerage</option>
+                                        <option value="2">Premium</option>
+                                        <option value="2">Total Premium</option>
+                                        <option value="2">Total Ceding Commission</option>
+                                        <option value="2">Field Value 1</option>
+                                        <option value="2">Field Value 2</option>
                                     </Form.Select>
                                 </Form.Group>
                             </Col>
@@ -785,8 +890,10 @@ const BusinessEntity = () => {
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Addition</option>
+                                        <option value="2">Subtraction</option>
+                                        <option value="2">Multiplication</option>
+                                        <option value="2">Division</option>
                                     </Form.Select>
                                 </Form.Group>
                             </Col>
@@ -796,8 +903,8 @@ const BusinessEntity = () => {
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Standerd</option>
+                                        <option value="2">Tax</option>
                                     </Form.Select>
                                 </Form.Group>
                             </Col>
@@ -807,8 +914,12 @@ const BusinessEntity = () => {
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Brokerage</option>
+                                        <option value="2">Premium</option>
+                                        <option value="2">Total Premium</option>
+                                        <option value="2">Total Ceding Commission</option>
+                                        <option value="2">Field Value 1</option>
+                                        <option value="2">Field Value 2</option>
                                     </Form.Select>
                                 </Form.Group>
                             </Col>
@@ -818,8 +929,10 @@ const BusinessEntity = () => {
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Addition</option>
+                                        <option value="2">Subtraction</option>
+                                        <option value="2">Multiplication</option>
+                                        <option value="2">Division</option>
                                     </Form.Select>
                                 </Form.Group>
                             </Col>
@@ -829,8 +942,8 @@ const BusinessEntity = () => {
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Standerd</option>
+                                        <option value="2">Tax</option>
                                     </Form.Select>
                                 </Form.Group>
                             </Col>
@@ -840,8 +953,25 @@ const BusinessEntity = () => {
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
                                         <option>--Select Action--</option>
-                                        <option value="1">true</option>
-                                        <option value="2">false</option>
+                                        <option value="1">Brokerage</option>
+                                        <option value="2">Premium</option>
+                                        <option value="2">Total Premium</option>
+                                        <option value="2">Total Ceding Commission</option>
+                                        <option value="2">Field Value 1</option>
+                                        <option value="2">Field Value 2</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4} className="mb-2">
+                                <Form.Group className="mb-4">
+                                <Form.Label>operation5_6</Form.Label>
+                                    {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
+                                    <Form.Select aria-label="Default select example">
+                                        <option>--Select Action--</option>
+                                        <option value="1">Addition</option>
+                                        <option value="2">Subtraction</option>
+                                        <option value="2">Multiplication</option>
+                                        <option value="2">Division</option>
                                     </Form.Select>
                                 </Form.Group>
                             </Col>

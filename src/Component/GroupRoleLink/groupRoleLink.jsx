@@ -2,14 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Container, Row , Col, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
+
+
+
 const GroupRoleLink = () =>{
     const { register, handleSubmit , formState: { errors } } = useForm();
     const [ List , setList ] = useState([]);
-
+    
     const onSubmit = (data) =>{
         List.push(data);
         console.warn("grouproleLink",List);
       }
+    
+     
 
       useEffect(()=>{
         setList(List);
@@ -48,6 +53,7 @@ const GroupRoleLink = () =>{
                                         <Button as="input" type="submit" value="Role 8" />{' '}
                                         <Button as="input" type="submit" value="Role 9" />{' '}
                                     </div>
+                                    
                             </Col>
                         </Row>
                     </Container>

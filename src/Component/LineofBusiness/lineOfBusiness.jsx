@@ -48,7 +48,6 @@ const LineofBusiness = () =>{
                                                 <th>LOB Name</th>
                                                 <th>Entity ID</th>
                                                 <th>Status </th>
-                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -96,18 +95,15 @@ const LineofBusiness = () =>{
                             <div className='admin-section admin-section-page'>
                                 <h2 className='admin-title'>Line of Business Form</h2>
                                 <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
-                                    <Row>
+                                    <div>
                                     <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Entity Id</Form.Label>
-                                                {/* <Form.Control type="text" {...register("canCreate")} placeholder="ex: true/false" /> */}
-                                                <Form.Select aria-label="Default select example">
-                                                <option>Select Entity Id</option>
-                                                <option value="1">value 1</option>
-                                                <option value="2">Value</option>
-                                            </Form.Select>
+                                                <Form.Label>Entity Id : 1002</Form.Label>
                                             </Form.Group>
                                         </Col>
+                                    </div>
+                                    <Row>
+                                    
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
                                                 <Form.Label>LOB Code</Form.Label>

@@ -34,7 +34,7 @@ const Home = () => {
                 onSelect={(k) => setKey(k)}
                 className="tabs-wrapper"
             >
-                <Tab eventKey="admin" title="Admin Panel">
+                <Tab eventKey="admin" title="User Panel">
                     <AdminPanel />
                 </Tab>
                 <Tab eventKey="Role" title="Role">
