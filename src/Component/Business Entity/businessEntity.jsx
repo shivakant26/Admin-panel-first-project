@@ -952,7 +952,7 @@ const BusinessEntity = () => {
                                 <Form.Label>field5Name</Form.Label>
                                     {/* <Form.Control type="text" {...register("rate")} placeholder="ex: true/false" /> */}
                                     <Form.Select aria-label="Default select example">
-                                        <option>--Select Action--</option>
+                                        <option selected="true" disabled="disabled">--Select Action--</option>
                                         <option value="1">Brokerage</option>
                                         <option value="2">Premium</option>
                                         <option value="2">Total Premium</option>

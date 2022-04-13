@@ -1,4 +1,4 @@
-import { fork, all } from 'redux-saga/effects'
+import { fork, all } from 'redux-saga/effects';
 import {adminSaga} from "./adminSaga";
 import { roleSaga } from "./roleSage";
 
