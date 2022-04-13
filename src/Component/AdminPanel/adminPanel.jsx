@@ -13,11 +13,25 @@ import { BsPlusLg } from 'react-icons/bs';
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserDetailsAction } from '../../Redux/Action/adminAction';
+import MultiSelect from  'react-multiple-select-dropdown-lite'
+import  'react-multiple-select-dropdown-lite/dist/index.css'
 
 
 const AdminPanel = () => {
     const dispatch = useDispatch();
     const [ searchText , setSearchText ] = useState("");
+    const [value, setvalue] = useState('')
+
+  const  handleOnchange  =  val  => {
+    setvalue(val)
+  }
+
+  const  options  = [
+    { label:  'Option 1', value:  'value_1'  },
+    { label:  'Option 2', value:  'value_2'  },
+    { label:  'Option 3', value:  'value_3'  },
+    { label:  'Option 4', value:  'value_4'  },
+  ]
     
     const getNewUser = useSelector((state)=>state.AdminReducer.data);
     // console.log("getNewUser",getNewUser);
@@ -154,11 +168,18 @@ const AdminPanel = () => {
                                             <Form.Group className="mb-4">
                                                 <Form.Label>Group Code</Form.Label>
                                                 {/* <Form.Control type="text" {...register("groupId")} placeholder="ex: Group Code" /> */}
-                                                <Form.Select aria-label="Default select example">
+                                                <MultiSelect
+                                                        placeholder="ex: Group Code"
+                                                        onChange={handleOnchange}
+                                                        options={options}
+                                                        
+                                                    />
+                                                    
+                                                {/* <Form.Select aria-label="Default select example">
                                                 <option>Select Entity Id</option>
                                                 <option value="1">value 1</option>
                                                 <option value="2">Value</option>
-                                            </Form.Select>
+                                            </Form.Select> */}
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
