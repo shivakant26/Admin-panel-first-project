@@ -7,10 +7,14 @@ import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
 const BusinessEntity = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const onSubmit = (data) => {
-        // dispatch(getUserDetailsAction(data))
-        console.log(data);
+    // const handleBussiness = (data) => {
+    //     console.log("Bussiness-Entity",data);
+        
+    // }
+    const onSubmit=(data)=>{
+        console.log("others",data)
     }
+    
     return (
         <div className="admin-wrapper">
             {/* <h2>Business Entity component</h2> */}
@@ -168,7 +172,7 @@ const BusinessEntity = () => {
                                     <Col md={4}>
                                         <Form.Group className="mb-4">
                                             <Form.Label>Entity Type</Form.Label>
-                                            <Form.Control type="text" {...register("entityType")} placeholder="ex: Entity Type" />
+                                            <Form.Control type="text" {...register("entityT2ype")} placeholder="ex: Entity Type" />
                                         </Form.Group>
                                     </Col>
                                     <Col md={4}>
@@ -208,10 +212,12 @@ const BusinessEntity = () => {
                                         </Form.Group>
                                     </Col>
                                     <Col md={4}>
-                                        <Form.Group className="mb-4" {...register("status")}>
+                                        <Form.Group className="mb-4" >
                                             <Form.Label>Status</Form.Label>
                                             <div className='status-check'>
                                             <Form.Check
+                                                {...register("status")}
+                                                value="Active"
                                                 inline
                                                 label="Active"
                                                 name="status"
@@ -219,6 +225,8 @@ const BusinessEntity = () => {
                                                 id='1'
                                             />
                                             <Form.Check
+                                                {...register("status")}
+                                                value="Inactive"
                                                 inline
                                                 label="Inactive"
                                                 name="status"
@@ -371,10 +379,12 @@ const BusinessEntity = () => {
                                         </Form.Group>
                                     </Col>
                                     <Col md={4}>
-                                        <Form.Group className="mb-4" {...register("status")}>
+                                        <Form.Group className="mb-4" >
                                             <Form.Label>Status</Form.Label>
                                             <div className='status-check'>
                                             <Form.Check
+                                                {...register("status")}
+                                                value="Active"
                                                 inline
                                                 label="Active"
                                                 name="status"
@@ -382,7 +392,9 @@ const BusinessEntity = () => {
                                                 id='1'
                                             />
                                             <Form.Check
+                                                {...register("status")}
                                                 inline
+                                                value="Inactive"
                                                 label="Inactive"
                                                 name="status"
                                                 type="radio"
