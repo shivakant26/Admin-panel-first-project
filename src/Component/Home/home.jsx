@@ -7,6 +7,7 @@ import BusinessEntity from "../Business Entity/businessEntity";
 import Role from "../Role/role";
 import LineofBusiness from "../LineofBusiness/lineOfBusiness";
 import GroupRoleLink from "../GroupRoleLink/groupRoleLink";
+import  GroupTable from "../GroupTable/groupTable"
 
 const Home = () => {
     const [key, setKey] = useState('admin');
@@ -51,6 +52,9 @@ const Home = () => {
                 </Tab>
                 <Tab eventKey="GroupRoleLink" title="Group Role Link">
                     <GroupRoleLink />
+                </Tab>
+                <Tab eventKey="group" title="Group Table">
+                    <GroupTable />
                 </Tab>
             </Tabs>
         </div>

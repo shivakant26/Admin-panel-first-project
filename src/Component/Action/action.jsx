@@ -19,7 +19,7 @@ const Action = () =>{
     const { register, handleSubmit , formState: { errors } } = useForm();
 
     const onSubmit = (role) =>{
-      console.warn("Action Data",role);
+      console.log("Action Data",role);
     }
     return(
         <>
@@ -226,14 +226,18 @@ const Action = () =>{
                                                 <Form.Label>Status</Form.Label>
                                                 <div className='status-check'>
                                                 <Form.Check
+                                                    {...register("status")}
                                                     inline
                                                     label="Active"
+                                                    value="Active"
                                                     name="status"
                                                     type="radio"
                                                     id='1'
                                                 />
                                                 <Form.Check
+                                                {...register("status")}
                                                     inline
+                                                    value="Inactive"
                                                     label="Inactive"
                                                     name="status"
                                                     type="radio"

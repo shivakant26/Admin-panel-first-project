@@ -23,7 +23,8 @@ const Role = () =>{
     console.log("getroledata",getroledata)
 
     const onSubmit = (role) =>{
-      dispatch(getRoleDetailsAction(role))
+        console.log("Role Data",role)
+    //   dispatch(getRoleDetailsAction(role))
     }
     return(
         <>
@@ -53,7 +54,6 @@ const Role = () =>{
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            
                                             {
                                                 getroledata.map((item,index)=>
                                             <tr key={index}>
@@ -78,38 +78,6 @@ const Role = () =>{
                                                 <td>0012</td>
                                                 <td>Allie Grater</td>
                                                 <td>#0012</td>
-                                                <td>*****</td>
-                                                <td>
-                                                    <span className='status inactive'>Inactive</span>
-                                                </td>
-                                                <td>01/03/2022</td>
-                                                <td>01/03/2022</td>
-                                                <td>
-                                                    <Button className='btn-action edit'>
-                                                        <AiFillEdit />
-                                                    </Button>
-                                                </td>
-                                            </tr> */}
-                                            {/* <tr>
-                                                <td>0013</td>
-                                                <td>Minnie Van Ryder</td>
-                                                <td>#0013</td>
-                                                <td>*****</td>
-                                                <td>
-                                                    <span className='status active'>Active</span>
-                                                </td>
-                                                <td>01/03/2022</td>
-                                                <td>01/03/2022</td>
-                                                <td>
-                                                    <Button className='btn-action delete'>
-                                                        <AiFillDelete />
-                                                    </Button>
-                                                </td>
-                                            </tr> */}
-                                            {/* <tr>
-                                                <td>0014</td>
-                                                <td>Chris Anthemum</td>
-                                                <td>#0014</td>
                                                 <td>*****</td>
                                                 <td>
                                                     <span className='status inactive'>Inactive</span>
@@ -149,7 +117,7 @@ const Role = () =>{
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
                                                 <Form.Label>Role Name</Form.Label>
-                                                <Form.Control type="roleName" {...register("roleName")} placeholder="ex: Johndoe@gmail.com" />
+                                                <Form.Control type="roleName" {...register("roleName")} placeholder="ex: Role Name" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
@@ -195,19 +163,23 @@ const Role = () =>{
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
-                                            <Form.Group className="mb-4" {...register("status")}>
+                                            <Form.Group className="mb-4">
                                                 <Form.Label>Status</Form.Label>
                                                 <div className='status-check'>
                                                 <Form.Check
+                                                    {...register("status")}
                                                     inline
                                                     label="Active"
+                                                    value="Active"
                                                     name="status"
                                                     type="radio"
                                                     id='1'
                                                 />
                                                 <Form.Check
+                                                    {...register("status")}
                                                     inline
                                                     label="Inactive"
+                                                    value="Inactive"
                                                     name="status"
                                                     type="radio"
                                                     id='2'

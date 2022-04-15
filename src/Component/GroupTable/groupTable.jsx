@@ -1,71 +1,87 @@
-import React from "react";
+import React,{useState} from 'react';
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from 'react-redux';
+import { AiFillDelete, AiFillEdit, AiOutlineSearch } from 'react-icons/ai';
+import { BsPlusLg } from 'react-icons/bs';
+import { getUserDetailsAction } from '../../Redux/Action/adminAction';
 import {
     Container,
     Row,
     Col,
     Table,
     Button,
-    Form,
-    Dropdown
+    Form
 } from 'react-bootstrap';
-// import '../adminPanel.scss';
-import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
-import { BsPlusLg } from 'react-icons/bs';
-import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import { getRoleDetailsAction } from "../../Redux/Action/roleAction";
-import Home from "../Home/home";
 
-const LineofBusiness = () =>{
+
+const GroupTable = () => {
+    const getNewUser = useSelector((state)=>state.AdminReducer.data);
+    const dispatch=useDispatch()
     const { register, handleSubmit , formState: { errors } } = useForm();
+    const [ List , setList ] = useState(getNewUser);
 
-    // console.log("getroledata",getroledata)
-
-    const onSubmit = (lobdata) =>{
-      console.log("line of business",lobdata)
+    const onSubmit = (data) =>{
+        console.log("Group Table Data",data)
+        // dispatch(getUserDetailsAction(data))
     }
-    return(
-        <>
-            {/* <Row>
-                <Col>
-                    <h1 className='page-title'>Role Panel Demo</h1>
-                </Col>
-            </Row> */}
-            <div className='admin-wrapper'>
-            <div className="adminContainer">       
+    const search = (e) =>{
+        const searchText = e.target.value;
+        let filterdata = getNewUser.filter((el)=>{
+            return el.username.toLowerCase().includes(searchText.toLowerCase()) ||
+                   el.email.toLowerCase().includes(searchText.toLowerCase())
+        })
+        setList(filterdata);
+        // console.warn("click",filterdata);
+    }
+
+  return (
+    <>
+    <div className='admin-wrapper'>
+                <div className="adminContainer">                
                 <Container>
                     <Row>
                         <Col md={12}>
-                            <div className='admin-section'>
+                        <div className='admin-section'>
+                                {/* <h2 className='admin-title'>User Table</h2> */}
                                 <div className='admin-header'>
-                                    <h2 className='admin-title'>Line of Business Table</h2>
+                                    <h2 className='admin-title'>User Table</h2>
+                                    <div className='search'>
+                                        <input type="text" placeholder='Search'
+                                        // value={searchText} 
+                                        onChange={search}/>
+                                        <AiOutlineSearch />
+                                    </div>
                                 </div>
                                 <div className='table-responsive'>
                                     <Table striped hover>
                                         <thead>
                                             <tr>
-                                                <th>LOB Code</th>
-                                                <th>LOB Name</th>
-                                                <th>Entity ID</th>
-                                                <th>Status </th>
+                                                <th>Group Code</th>
+                                                <th>Group Name</th>
+                                                <th>Status</th>
+                                                <th>Expiry Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>sdf</td>
-                                                <td>sdfsdf</td>
-                                                <td>sdfs</td>
+                                          
+                                                <td>jjj</td>
+                                                <td>jjj</td>
+                                                
                                                 <td>
                                                     <span className='status active'>Active</span>
                                                 </td>
+                                                <td>03/03/1999</td>
+                                                
                                                 <td>
                                                     <Button className='btn-action delete'>
                                                         <AiFillDelete />
                                                     </Button>
                                                 </td>
                                             </tr>
+                                            
+                                    
                                             {/* <tr>
-                                                <td>0012</td>
                                                 <td>Allie Grater</td>
                                                 <td>#0012</td>
                                                 <td>*****</td>
@@ -85,68 +101,29 @@ const LineofBusiness = () =>{
                                 </div>
                                 <Col md={12}>
                                         <Form.Group className="table-actions">
-                                            <Button type="submit" className='admin-page-btn'>
+                                            <Button type="submit"  className='admin-page-btn'>
                                                 Add More
                                                 <BsPlusLg className='icon' />
                                             </Button>
                                         </Form.Group>
                                     </Col>
                             </div>
-                            <div className='admin-section admin-section-page'>
-                                <h2 className='admin-title'>Line of Business Form</h2>
+                        <div className='admin-section admin-section-page'>
+                                <h2 className='admin-title'>Group Form</h2>
                                 <Form className="admin-form-ui" onSubmit={handleSubmit(onSubmit)}>
-                                    <div>
+                                    <Row>
                                     <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>Entity Id : 1002</Form.Label>
-                                            </Form.Group>
-                                        </Col>
-                                    </div>
-                                    <Row>
-                                    
-                                        <Col md={4}>
-                                            <Form.Group className="mb-4">
-                                                <Form.Label>LOB Code</Form.Label>
+                                                <Form.Label>Group Code</Form.Label>
                                                 <Form.Control type="text" 
-                                                {...register("lobCode",{required: true,})} 
+                                                {...register("groupCode",{required: true,})} 
                                                 placeholder="ex: #0012" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-4">
-                                                <Form.Label>LOB Name</Form.Label>
-                                                <Form.Control type="text" {...register("lobName")} placeholder="ex: lobName" />
-                                            </Form.Group>
-                                        </Col>
-                                        
-                                        <Col md={4}>
-                                            <Form.Group className="mb-4">
-                                                <Form.Label>Last Op Ind</Form.Label>
-                                                <Form.Control type="text" {...register("lastOptionIndex")} placeholder="ex: Last op Ind" />
-                                            </Form.Group>
-                                        </Col>
-                                        <Col md={4}>
-                                            <Form.Group className="mb-4">
-                                                <Form.Label>Updated By</Form.Label>
-                                                <Form.Control type="text" {...register("updatedBy")} placeholder="ex: Updated By" />
-                                            </Form.Group>
-                                        </Col>
-                                        <Col md={4}>
-                                            <Form.Group className="mb-4">
-                                                <Form.Label>Created By</Form.Label>
-                                                <Form.Control type="text" {...register("createBy")} placeholder="ex: Created By" />
-                                            </Form.Group>
-                                        </Col>
-                                        <Col md={4}>
-                                            <Form.Group className="mb-4">
-                                                <Form.Label>Update Date</Form.Label>
-                                                <Form.Control type="date" {...register("updateDate")} placeholder="ex: 21/09/2004" />
-                                            </Form.Group>
-                                        </Col>
-                                        <Col md={4}>
-                                            <Form.Group className="mb-4">
-                                                <Form.Label>Created Date</Form.Label>
-                                                <Form.Control type="date" {...register("createdDate")} placeholder="ex: 22/11/2004" />
+                                                <Form.Label>Group Name</Form.Label>
+                                                <Form.Control type="text" {...register("groupName")} placeholder="ex: Action Name" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={4}>
@@ -154,7 +131,7 @@ const LineofBusiness = () =>{
                                                 <Form.Label>Status</Form.Label>
                                                 <div className='status-check'>
                                                 <Form.Check
-                                                     {...register("status")}
+                                                    {...register("status")}
                                                     inline
                                                     label="Active"
                                                     value="Active"
@@ -163,7 +140,7 @@ const LineofBusiness = () =>{
                                                     id='1'
                                                 />
                                                 <Form.Check
-                                                     {...register("status")}
+                                                    {...register("status")}
                                                     inline
                                                     label="Inactive"
                                                     value="Inactive"
@@ -172,6 +149,12 @@ const LineofBusiness = () =>{
                                                     id='2'
                                                 />
                                                 </div>
+                                            </Form.Group>
+                                        </Col>
+                                        <Col md={4}>
+                                            <Form.Group className="mb-4">
+                                                <Form.Label>Expiry Date</Form.Label>
+                                                <Form.Control type="date" {...register("expiryDate")} placeholder="ex: 22/11/2004" />
                                             </Form.Group>
                                         </Col>
                                         <Col md={12}>
@@ -187,9 +170,10 @@ const LineofBusiness = () =>{
                     </Row>
                 </Container>
                 </div>
-            </div>
-        </>
-    )
+
+    </div>
+    </>
+  )
 }
 
-export default LineofBusiness;
+export default GroupTable
