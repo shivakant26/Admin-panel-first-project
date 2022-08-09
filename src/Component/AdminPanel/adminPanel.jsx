@@ -36,9 +36,18 @@ const AdminPanel = () => {
     formState: { errors },
   } = useForm();
 
+  const result = {
+      "email": "raj02@gmail.com",
+      "groupCode": "G1",
+      "password": "123456789",
+      "status": "true",
+      "userId": "raj02@gmail.com",
+      "userName": "raj02"
+    }
+
   const onSubmit = (data) => {
-    console.log("userPanel", data);
-    dispatch(getUserDetailsAction(data));
+    console.log(666, result);
+    dispatch(getUserDetailsAction(result));
   };
   const search = (e) => {
     const searchText = e.target.value;
@@ -280,7 +289,7 @@ const AdminPanel = () => {
                               inline
                               label="Active"
                               name="status"
-                              value="Active"
+                              value="true"
                               type="radio"
                               id="1"
                             />
@@ -289,7 +298,7 @@ const AdminPanel = () => {
                               inline
                               label="Inactive"
                               name="status"
-                              value="Inactive"
+                              value="false"
                               type="radio"
                               id="2"
                             />

@@ -5,7 +5,7 @@ import { ApiData } from '../../Utils/getApi'
 
 function* AddData(action){
 
-    const response = yield call(ApiData, {apiMethod:'post',endPoints:'/user'})
+    const response = yield call(ApiData, {apiMethod:'post',endPoints:'/users'})
     debugger;
     if(response.status===200){
         yield put({
